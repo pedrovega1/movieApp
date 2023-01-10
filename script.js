@@ -11,7 +11,7 @@ getMovies(API_URL);
 function getMovies(url){
     fetch(url).then(res => res.json()).then(data => {
         
-        console.log(data.results)
+        showMovies(data.results)
         
 })
 }
@@ -19,7 +19,7 @@ function getMovies(url){
 function showMovies(data){
     main.innerHTML = '';
     data.forEach(movie => {
-        const{title,vote_average,poster_path,overview} = movie;
+        const {title, poster_path, vote_average, overview } = movie;
         const movieEl = document.createElement('div')
         movieEl.classList.add('movie');
         movieEl.innerHTML = `
@@ -36,6 +36,7 @@ function showMovies(data){
         
         `
         main.appendChild(movieEl);
+        console.log(movieE1)
     })
     
     
